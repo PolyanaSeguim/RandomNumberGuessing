@@ -1,0 +1,23 @@
+import random
+
+def randomNumberGenerator(smallNumber, largeNumber):
+	""" Generates a random number from the range passed in the parameter
+	    as smallNumber and largeNumber.  This function uses random package
+	    in order to create the random number. """
+	randomNumber = random.randint(smallNumber, largeNumber)
+	for i in range(largeNumber):
+		userInput = int(input("Guess the random number: "))
+		if userInput < smallNumber or userInput > largeNumber:
+			print ("Please enter a number within the range ", smallNumber, " and ", largeNumber)
+		elif userInput > randomNumber:
+			print ("Number too high")
+		elif userInput < randomNumber:
+			print ("Number too low")
+		elif userInput == randomNumber:
+			print ("You guessed it! ", userInput)
+			break
+		else:
+			print ("Number out of range")
+
+#Function call for randomNumberGenerator	
+randomNumberGenerator(int(input("Enter lowest integer for the range")), int(input("Enter highest integer for the range")))
